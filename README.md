@@ -22,8 +22,39 @@ This guide outlines the process of designing this robot including hardware and s
 8. [SparkFun Wheels](https://www.electromaker.io/shop/product/wheel-65mm-rubber-tire-pair?gad_source=1&gclid=Cj0KCQjwir2xBhC_ARIsAMTXk866VfV_39VTv8XwIU5cyQs2A4RIkEQxq-QjgyjtQOKmmzivmXojmj0aApZMEALw_wcB)
 9. [Polycarbonate Frame](https://www.amazon.com/Polycarbonate-Plastic-Shatter-Resistant-Document/dp/B094F4D8CY/ref=asc_df_B094F4D8CY/?tag=hyprod-20&linkCode=df0&hvadid=647198461098&hvpos=&hvnetw=g&hvrand=4361963369218448029&hvpone=&hvptwo=&hvqmt=&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=9060223&hvtargid=pla-1372682301516&psc=1&mcid=ff0c1e241f4d3c52b20e4a6d5afa5ee4) 
 
-### Chasis Design
+### Chassis Design:
 Created a custom chasis design to fit our electronics and motors
+![](https://github.com/anshgandhi4/self-balancing-robot/blob/master/Chasis.png)
+
+### Component Schematic:
+![](https://github.com/anshgandhi4/self-balancing-robot/blob/master/Component%20Schematic.png)
+The IMU Sensor provides the mbed with accelerometer and gyrosensor measurements which is then utilized to compute appropriate values to supply to the H-Bridge. The H-birdge converts these values into appropriate values to drive the motors. The motors and mbed are each on their own power supply to prevent current spikes from affecting power to the mbed.
+
+### Construction:
+
+### Pin Layouts:
+
+|H-Bridge Pins|mbed Pins|Motor Wires|
+|:-----------:|:-------:|:---------:|
+|VM|Battery Pack|-|
+|VCC|VOUT|-|
+|GND|GND|-|
+|AO1|-| Right Motor Red|
+|AO2|-|Right Motor Black|
+|BO1|-|Left Motor Red|
+|BO2|-|Left Motor Black|
+|GND|GND|-|
+|PWMA|p24|-|
+|AI1|p8|-|
+|AI2|p7|-|
+|STBY|VOUT|-|
+|PWMB|p25|-|
+|BI1|p5|-|
+|BI2|p6|-|
+|GND|GND|-|
+
+
+
 
 
 ### Resources:
