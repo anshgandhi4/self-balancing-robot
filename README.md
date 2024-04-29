@@ -28,12 +28,13 @@ Created a custom chasis design to fit our electronics and motors
 
 ### Component Schematic:
 ![](https://github.com/anshgandhi4/self-balancing-robot/blob/master/Component%20Schematic.png)
-The IMU Sensor provides the mbed with accelerometer and gyrosensor measurements which is then utilized to compute appropriate values to supply to the H-Bridge. The H-birdge converts these values into appropriate values to drive the motors. The motors and mbed are each on their own power supply to prevent current spikes from affecting power to the mbed.
+The IMU Sensor provides the mbed with accelerometer and gyroscopic measurements which is then utilized to compute appropriate values to supply to the H-Bridge. The H-birdge converts these values into appropriate values to drive the motors. The motors and mbed are each on their own power supply to prevent current spikes from affecting power to the mbed.
 
 ### Construction:
 
 ### Pin Layouts:
-
+#### H-Bridge:
+![](https://github.com/anshgandhi4/self-balancing-robot/blob/master/H-Bridge.png)
 |H-Bridge Pins|mbed Pins|Motor Wires|
 |:-----------:|:-------:|:---------:|
 |VM|Battery Pack|-|
@@ -53,7 +54,24 @@ The IMU Sensor provides the mbed with accelerometer and gyrosensor measurements 
 |BI2|p6|-|
 |GND|GND|-|
 
+#### IMU:
+![](https://github.com/anshgandhi4/self-balancing-robot/blob/master/IMU.png)
+|IMU Pins|mbed Pins|
+|:-----------:|:-------:|
+|SCL|p28|
+|SDA|p27|
+|VDD|VOUT|
+|GND|GND|
 
+#### Adafruit Bluetooth:
+![](https://github.com/anshgandhi4/self-balancing-robot/blob/master/Bluetooth.png)
+|BLE Pins|mbed Pins|
+|:-----------:|:-------:|
+|TXO|p13|
+|RXI|p14|
+|CTS|GND|
+|GND|GND|
+|Vin| Battery Pack|
 
 
 
