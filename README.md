@@ -64,7 +64,7 @@ The IMU Sensor provides the mbed with accelerometer and gyroscopic measurements 
 |GND|GND|
 
 #### Adafruit Bluetooth:
-![](https://github.com/anshgandhi4/self-balancing-robot/blob/master/Bluetooth.png)
+<img src="Bluetooth.png" alt="drawing" style="width:200px;"/></img>
 |BLE Pins|mbed Pins|
 |:-----------:|:-------:|
 |TXO|p13|
