@@ -34,7 +34,7 @@ The IMU Sensor provides the mbed with accelerometer and gyroscopic measurements 
 
 ### Pin Layouts:
 #### H-Bridge:
-![](https://github.com/anshgandhi4/self-balancing-robot/blob/master/H-Bridge.png)
+<img src="H-Bridge.png" alt="drawing" style="width:200px;"/></img>
 |H-Bridge Pins|mbed Pins|Motor Wires|
 |:-----------:|:-------:|:---------:|
 |VM|Battery Pack|-|
@@ -55,7 +55,7 @@ The IMU Sensor provides the mbed with accelerometer and gyroscopic measurements 
 |GND|GND|-|
 
 #### IMU:
-![](https://github.com/anshgandhi4/self-balancing-robot/blob/master/IMU.png)
+<img src="IMU.png" alt="drawing" style="width:200px;"/></img>
 |IMU Pins|mbed Pins|
 |:-----------:|:-------:|
 |SCL|p28|
