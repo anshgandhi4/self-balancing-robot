@@ -267,7 +267,22 @@ int main() {
     }
 }
 ```
+### Iterations:
+1. Our first approach involved using a gravity feed forward algorithm to assist in balancing. However, we ran into issues regarding motor power and absurd oscillatory movement.
+2. Next we primarily used accleration data because the gyroscopic data kept drifting or giving absurd measurements. The issue with this approach was that sudden changes in acceleration resulted in sudden jerking of the robot which knocked it off its equilibrium.
+3. Our third approach involved using a complementary filter to help remove the noise from the gyroscopic readings and utilize it to get an accurate angle reading for the robot.
 
+### Demo:
+1. Demo: https://youtu.be/zSYBFj76JRM
+2. Oscillation Testing: https://youtu.be/4kjMF7BKbzk
+3. Oscillation Testing Graphs: https://youtube.com/shorts/2Yzb6hkkgFo?feature=share
+4. Problematic Oscillations: https://youtu.be/JfjvGOS7Too
+5. Ideal Oscillations: https://youtu.be/NjUfE1U3GDE
+6. Polycarbonate Cutting: https://youtu.be/hWCOUB6D1Eo
+
+### Bloopers:
+Doctor Engineers
+![](https://github.com/anshgandhi4/self-balancing-robot/blob/master/Doctor%20Engineer.jpeg)
 
 ### Resources:
 Past Projects:
