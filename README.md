@@ -30,7 +30,9 @@ Created a custom chasis design to fit our electronics and motors
 ![](https://github.com/anshgandhi4/self-balancing-robot/blob/master/Component%20Schematic.png)
 The IMU Sensor provides the mbed with accelerometer and gyroscopic measurements which is then utilized to compute appropriate values to supply to the H-Bridge. The H-birdge converts these values into appropriate values to drive the motors. The motors and mbed are each on their own power supply to prevent current spikes from affecting power to the mbed.
 
-### Construction:
+### Robot Design:
+#### Acrylic Based Design w/ Horizontal orientation of Breadboards
+<img src="Iteration1.jpg" alt="drawing" style="width:400px;"/></img>
 
 ### Pin Layouts:
 #### H-Bridge:
