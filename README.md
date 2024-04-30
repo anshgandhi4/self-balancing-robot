@@ -1,42 +1,46 @@
 # Self-Balancing Robot
-#### By: Ansh Gandhi, Ansh Bhatti, Niranjan Deepak
-#### Georgia Institute of Technology
+### By: Ansh Gandhi, Ansh Bhatti, Niranjan Deepak
+### Georgia Institute of Technology
+### ECE 4180
 
-### Overview:
-The purpose of this project is to design a robot with a two wheel base that can self balance when oriented vertically. Not only is this robot suppose to maintain balance it also should be able to move around.
+## Overview
+The purpose of this project is to design a robot with a two wheel base that can self-balance when oriented vertically. The robot should also be able to move around by obeying commands sent via Bluetooth.
 
-The chasis of this robot was a custom design with hooks for attaching breadboard circuits and the motor. The chasis was created by water jetting polycarboante boards. 
+We custom designed our robot's chassis to house mounts for the two motors, battery packs, and breadboards while minimizing the overall footprint to reduce the moment of inertia. Our initial iteration was made by laser cutting acrylic, and our updated design was machined by waterjetting a 1/8" polycarbonate sheet.
 
-Furthermore, the microcontroller used for this project is an mbed LPC 1768. Additional hardware that was utilized are an H-Bridge to control the dual motors, an IMU sensor to record gyroscopic & acceleration measurements, and a Bluetooth chip to manually control the robot.
+We used the mbed LPC 1768 microcontroller for this project. We used an H-Bridge to control the drive motors, an IMU to record gyroscope & accelerometer measurements, and a Bluetooth chip to control the robot.
 
-This guide outlines the process of designing this robot including hardware and software walkthroughs along with a demo of the final robot.
+This page outlines our robot creation process, including hardware/software walkthroughs and a video demo of the final robot.
 
-### Materials:
-1. [mbed LPC 1768](https://os.mbed.com/platforms/mbed-LPC1768/)
-2. [IMU Sensor](https://os.mbed.com/components/LSM9DS1-IMU/)
-3. [H-Bridge](https://os.mbed.com/cookbook/Motor)
-4. [Adafruit Bluetooth](https://os.mbed.com/users/4180_1/notebook/adafruit-bluefruit-le-uart-friend---bluetooth-low-/)
-5. [2 DC Motors](https://www.bananarobotics.com/shop/Yellow-Gear-Motor-with-48-to-1-reduction-ratio)
-6. [Battery Pack](https://www.digikey.com/en/products/detail/sparkfun-electronics/PRT-09835/6161749?utm_adgroup=&utm_source=google&utm_medium=cpc&utm_campaign=PMax%20Shopping_Product_Low%20ROAS%20Categories&utm_term=&utm_content=&utm_id=go_cmp-20243063506_adg-_ad-__dev-c_ext-_prd-6161749_sig-Cj0KCQjwir2xBhC_ARIsAMTXk85yftyv_pHCKhm5V_gyFmn7Xrvi7-D7naQfL1gMGpO5F1d3YW9vyGEaAsYGEALw_wcB&gad_source=1&gclid=Cj0KCQjwir2xBhC_ARIsAMTXk85yftyv_pHCKhm5V_gyFmn7Xrvi7-D7naQfL1gMGpO5F1d3YW9vyGEaAsYGEALw_wcB)
-7. [Barrel Jack Adapter](https://www.digikey.com/en/products/detail/cui-devices/PJ-102AH/408448?utm_adgroup=&utm_source=google&utm_medium=cpc&utm_campaign=PMax%20Supplier_Focus%20Supplier&utm_term=&utm_content=&utm_id=go_cmp-20243063242_adg-_ad-__dev-c_ext-_prd-408448_sig-Cj0KCQjwir2xBhC_ARIsAMTXk87SltCMliolDHcNn3urTq2zlLzNp1zLCkPbcD6KzQadYrdMgjCW7HcaAgr-EALw_wcB&gad_source=1&gclid=Cj0KCQjwir2xBhC_ARIsAMTXk87SltCMliolDHcNn3urTq2zlLzNp1zLCkPbcD6KzQadYrdMgjCW7HcaAgr-EALw_wcB)
-8. [SparkFun Wheels](https://www.electromaker.io/shop/product/wheel-65mm-rubber-tire-pair?gad_source=1&gclid=Cj0KCQjwir2xBhC_ARIsAMTXk866VfV_39VTv8XwIU5cyQs2A4RIkEQxq-QjgyjtQOKmmzivmXojmj0aApZMEALw_wcB)
-9. [Polycarbonate Frame](https://www.amazon.com/Polycarbonate-Plastic-Shatter-Resistant-Document/dp/B094F4D8CY/ref=asc_df_B094F4D8CY/?tag=hyprod-20&linkCode=df0&hvadid=647198461098&hvpos=&hvnetw=g&hvrand=4361963369218448029&hvpone=&hvptwo=&hvqmt=&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=9060223&hvtargid=pla-1372682301516&psc=1&mcid=ff0c1e241f4d3c52b20e4a6d5afa5ee4) 
+## Materials
+- 1 [mbed LPC 1768](https://os.mbed.com/platforms/mbed-LPC1768/)
+- 1 [LSM9DS1 IMU](https://os.mbed.com/components/LSM9DS1-IMU/)
+- 1 [H-Bridge](https://os.mbed.com/cookbook/Motor)
+- 1 [Adafruit Bluetooth Module](https://os.mbed.com/users/4180_1/notebook/adafruit-bluefruit-le-uart-friend---bluetooth-low-/)
+- 2 [DC Motor](https://www.bananarobotics.com/shop/Yellow-Gear-Motor-with-48-to-1-reduction-ratio)
+- 2 [AA Battery Pack](https://www.digikey.com/en/products/detail/sparkfun-electronics/PRT-09835/6161749)
+- 2 [Barrel Jack Adapter](https://www.digikey.com/en/products/detail/cui-devices/PJ-102AH/408448)
+- 2 [SparkFun Wheels](https://www.electromaker.io/shop/product/wheel-65mm-rubber-tire-pair)
+- 12" x 12" [1/8" Polycarbonate Sheet](https://www.amazon.com/Polycarbonate-Plastic-Shatter-Resistant-Document/dp/B094F4D8CY)
+- 2 Breadboards
+- Jumper Wires
 
-### Chassis Design:
-Created a custom chasis design to fit our electronics and motors
+## Chassis Design
+Final iteration of custom chassis design to house our electronics and motors
 ![](https://github.com/anshgandhi4/self-balancing-robot/blob/master/Chasis.png)
 
-### Component Schematic:
+## Component Schematic
 ![](https://github.com/anshgandhi4/self-balancing-robot/blob/master/Component%20Schematic.png)
-The IMU Sensor provides the mbed with accelerometer and gyroscopic measurements which is then utilized to compute appropriate values to supply to the H-Bridge. The H-birdge converts these values into appropriate values to drive the motors. The motors and mbed are each on their own power supply to prevent current spikes from affecting power to the mbed.
+The mbed processes gyroscope and accelerometer measurements from the IMU and uses a PD + feedforward controller to compute appropriate motor commands. These commands are sent to the H-bridge, which sends power to drive the motors. The mbed and motors are given their own power supply to prevent motor current spikes from affecting power to the mbed.
 
-### Robot Design:
-#### Acrylic Based Design w/ Horizontal Orientation of Breadboards
+## Robot Design Evolution
+### Acrylic-Based Design w/ Horizontal Breadboard Orientation
 <img src="Iteration1.jpeg" alt="drawing" style="width:400px;"/></img>
-#### PolyCarbonate Based Design w/ Vertical Orientation of Breadboards
+### Polycarbonate-Based Design w/ Vertical Breadboard Orientation
 <img src="FinalIteration.jpeg" alt="drawing" style="width:400px;"/></img>
-### Pin Layouts:
-#### H-Bridge:
+
+## Pin Layouts
+### H-Bridge:
 <img src="H-Bridge.png" alt="drawing" style="width:200px;"/></img>
 |H-Bridge Pins|mbed Pins|Motor Wires|
 |:-----------:|:-------:|:---------:|
@@ -57,7 +61,7 @@ The IMU Sensor provides the mbed with accelerometer and gyroscopic measurements 
 |BI2|p6|-|
 |GND|GND|-|
 
-#### IMU:
+### IMU:
 <img src="IMU.png" alt="drawing" style="width:200px;"/></img>
 |IMU Pins|mbed Pins|
 |:-----------:|:-------:|
@@ -66,7 +70,7 @@ The IMU Sensor provides the mbed with accelerometer and gyroscopic measurements 
 |VDD|VOUT|
 |GND|GND|
 
-#### Adafruit Bluetooth:
+### Bluetooth Module:
 <img src="Bluetooth.png" alt="drawing" style="width:200px;"/></img>
 |BLE Pins|mbed Pins|
 |:-----------:|:-------:|
@@ -74,9 +78,11 @@ The IMU Sensor provides the mbed with accelerometer and gyroscopic measurements 
 |RXI|p14|
 |CTS|GND|
 |GND|GND|
-|Vin| Battery Pack|
-### Code:
-The stabilization algorithm utilizes a combination of PID Steer to drive the motors with specific values and a Complementary Filter to reduce the noise from the IMU sensor. We take the first 200 cycles of data values from the IMU sensor to calibrate the bias in both acceleration and gyroscopic readings. To measure the angle the robot is tilted at, we utilize a combination of the gyroscopic readings along with acceleration data to help mitigate the gyroscope's drifting. After that we take the current angle and utilize the PID algorithm to calcualte motor speeds necessary to get the robot to the target tilt. With some fine tuning we have found that setting kP to -10.5 allows for fast enough response time to angle changes and setting kD reduces oscillation in the robots movement.
+|Vin|Battery Pack|
+
+## Code
+Upon bootup, the robot takes 200 samples of accelerometer and gyroscope data to calibrate the bias for each sensor. To measure the robot's tilt angle, we use a [complementary filter](https://vanhunteradams.com/Pico/ReactionWheel/Complementary_Filters.html) to combine the raw values of the accelerometer and gyroscope. This filter outputs smooth IMU measurements by overcoming gyroscope drift and noisy accelerometer readings. After measuring the robot's tilt, our PD + gravity feedforward controller computes the motor speeds required to keep the robot balanced. The controller stage also accounts for linear commands received via Bluetooth by adjusting the controller's target tilt angle, and responds to angular commands by adding a constant turning speed to one motor and subtracting it from the other. Our main source code is shown below.
+
 ```cpp
 #include "LSM9DS1.h"
 #include "Motor.h"
@@ -267,28 +273,33 @@ int main() {
     }
 }
 ```
-### Iterations:
-1. Our first approach involved using a gravity feed forward algorithm to assist in balancing. However, we ran into issues regarding motor power and absurd oscillatory movement.
-2. Next we primarily used accleration data because the gyroscopic data kept drifting or giving absurd measurements. The issue with this approach was that sudden changes in acceleration resulted in sudden jerking of the robot which knocked it off its equilibrium.
-3. Our third approach involved using a complementary filter to help remove the noise from the gyroscopic readings and utilize it to get an accurate angle reading for the robot.
 
-### Demo:
-1. Demo: https://youtu.be/zSYBFj76JRM
-2. Oscillation Testing: https://youtu.be/4kjMF7BKbzk
-3. Oscillation Testing Graphs: https://youtube.com/shorts/2Yzb6hkkgFo?feature=share
-4. Problematic Oscillations: https://youtu.be/JfjvGOS7Too
-5. Ideal Oscillations: https://youtu.be/NjUfE1U3GDE
-6. Polycarbonate Cutting: https://youtu.be/hWCOUB6D1Eo
+## Iterations
+1. We originally powered all electronics from the same power supply. After some testing, we realized that the motors would need to be powered separately from the other electronics to avoid disruption due to current spikes.
+2. We originally planned to mount the batter packs directly onto the robot, but after some testing, we realized that the motors were too weak to control a robot with such a high moment of inertia. To make the robot easier to control, we were forced to remove the batter packs and mount the breadboards lower.
+3. Our initial code used raw accelerometer values to estimate the robot's tilt angle. While this worked well on a stationary robot, the robot's motion created extremely noisy data, producing severe oscillations that made it difficult to control the robot.
 
-### Bloopers:
-Doctor Engineers
+## Demo Videos
+- Demo: https://youtu.be/zSYBFj76JRM
+- Oscillation Testing: https://youtu.be/4kjMF7BKbzk
+- Oscillation Testing Graphs: https://youtube.com/shorts/2Yzb6hkkgFo?feature=share
+- Problematic Oscillations: https://youtu.be/JfjvGOS7Too
+- Ideal Oscillations: https://youtu.be/NjUfE1U3GDE
+- Polycarbonate Cutting: https://youtu.be/hWCOUB6D1Eo
+
+## Future Plans
+- More effectively use the IMU by also using magnetometer data and implementing a Kalman filter
+- Use more powerful motors to comfortably incorporate batteries without compromising balance
+- Use better wheels to get more traction for better control
+- Improve motion controller tuning
+- Make control inputs more intuitive by using joystick instead of arrow keys
+
+## Bloopers:
+Engineer performing robot surgery without an M.D. degree
 ![](https://github.com/anshgandhi4/self-balancing-robot/blob/master/Doctor%20Engineer.jpeg)
 
-### Resources:
-Past Projects:
+## Resources:
+Below are links to past projects we took inspiration from:
 - https://os.mbed.com/users/Samer/notebook/balancing-bot/
 - https://os.mbed.com/users/fmmgramacho/notebook/self-balancing-robot-segway/
 - https://os.mbed.com/users/Solomon_Martin/code/Stabilize/
-- https://os.mbed.com/users/pandirimukund/code/segway-balancing/
-Outside Resources:
-- https://vanhunteradams.com/Pico/ReactionWheel/Complementary_Filters.html
