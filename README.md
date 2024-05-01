@@ -2,6 +2,7 @@
 ### By: Ansh Gandhi, Ansh Bhatti, Niranjan Deepak
 ### Georgia Institute of Technology
 ### ECE 4180
+![](docs/robot.jpg)
 
 ## Overview
 The purpose of this project is to design a robot with a two wheel base that can self-balance when oriented vertically. The robot should also be able to move around by obeying commands sent via Bluetooth.
@@ -27,21 +28,21 @@ This page outlines our robot creation process, including hardware/software walkt
 
 ## Chassis Design
 Final iteration of custom chassis design to house our electronics and motors
-![](https://github.com/anshgandhi4/self-balancing-robot/blob/master/Chasis.png)
+![](docs/cad.png)
 
 ## Component Schematic
-![](https://github.com/anshgandhi4/self-balancing-robot/blob/master/Component%20Schematic.png)
+![](docs/schematic.png)
 The mbed processes gyroscope and accelerometer measurements from the IMU and uses a PD + feedforward controller to compute appropriate motor commands. These commands are sent to the H-bridge, which sends power to drive the motors. The mbed and motors are given their own power supply to prevent motor current spikes from affecting power to the mbed.
 
 ## Robot Design Evolution
 ### Acrylic-Based Design w/ Horizontal Breadboard Orientation
-<img src="Iteration1.jpeg" alt="drawing" style="width:400px;"/></img>
+<img src="docs/acrylic.jpg" alt="drawing" style="width:400px;"/></img>
 ### Polycarbonate-Based Design w/ Vertical Breadboard Orientation
-<img src="FinalIteration.jpeg" alt="drawing" style="width:400px;"/></img>
+<img src="docs/robot.jpg" alt="drawing" style="width:400px;"/></img>
 
 ## Pin Layouts
 ### H-Bridge:
-<img src="H-Bridge.png" alt="drawing" style="width:200px;"/></img>
+<img src="docs/hbridge.png" alt="drawing" style="width:200px;"/></img>
 |H-Bridge Pins|mbed Pins|Motor Wires|
 |:-----------:|:-------:|:---------:|
 |VM|Battery Pack|-|
@@ -62,7 +63,7 @@ The mbed processes gyroscope and accelerometer measurements from the IMU and use
 |GND|GND|-|
 
 ### IMU:
-<img src="IMU.png" alt="drawing" style="width:200px;"/></img>
+<img src="docs/imu.png" alt="drawing" style="width:200px;"/></img>
 |IMU Pins|mbed Pins|
 |:-----------:|:-------:|
 |SCL|p28|
@@ -71,7 +72,7 @@ The mbed processes gyroscope and accelerometer measurements from the IMU and use
 |GND|GND|
 
 ### Bluetooth Module:
-<img src="Bluetooth.png" alt="drawing" style="width:200px;"/></img>
+<img src="docs/bluetooth.png" alt="drawing" style="width:200px;"/></img>
 |BLE Pins|mbed Pins|
 |:-----------:|:-------:|
 |TXO|p13|
@@ -296,7 +297,7 @@ int main() {
 
 ## Bloopers:
 Engineer performing robot surgery without an M.D. degree
-![](https://github.com/anshgandhi4/self-balancing-robot/blob/master/Doctor%20Engineer.jpeg)
+![](docs/blooper.jpg)
 
 ## Resources:
 Below are links to past projects we took inspiration from:
