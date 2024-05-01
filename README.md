@@ -2,6 +2,8 @@
 ### By: Ansh Gandhi, Ansh Bhatti, Niranjan Deepak
 ### Georgia Institute of Technology
 ### ECE 4180
+[Demo Video](https://youtu.be/ZU8DSciN7E4)
+
 ![](docs/robot.jpg)
 
 ## Overview
@@ -279,14 +281,6 @@ int main() {
 1. We originally powered all electronics from the same power supply. After some testing, we realized that the motors would need to be powered separately from the other electronics to avoid disruption due to current spikes.
 2. We originally planned to mount the batter packs directly onto the robot, but after some testing, we realized that the motors were too weak to control a robot with such a high moment of inertia. To make the robot easier to control, we were forced to remove the batter packs and mount the breadboards lower.
 3. Our initial code used raw accelerometer values to estimate the robot's tilt angle. While this worked well on a stationary robot, the robot's motion created extremely noisy data, producing severe oscillations that made it difficult to control the robot.
-
-## Demo Videos
-- Demo: https://youtu.be/zSYBFj76JRM
-- Oscillation Testing: https://youtu.be/4kjMF7BKbzk
-- Oscillation Testing Graphs: https://youtube.com/shorts/2Yzb6hkkgFo?feature=share
-- Problematic Oscillations: https://youtu.be/JfjvGOS7Too
-- Ideal Oscillations: https://youtu.be/NjUfE1U3GDE
-- Polycarbonate Cutting: https://youtu.be/hWCOUB6D1Eo
 
 ## Future Plans
 - More effectively use the IMU by also using magnetometer data and implementing a Kalman filter
